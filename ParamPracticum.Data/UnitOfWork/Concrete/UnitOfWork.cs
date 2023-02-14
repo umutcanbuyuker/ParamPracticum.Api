@@ -5,7 +5,7 @@ using ParamPracticum.Data.Repository.Concrete;
 
 namespace ParamPracticum.Data.Uow
 {
-    internal class UnitOfWork : IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private readonly AppDbContext dbContext;
         private bool disposed;
@@ -19,7 +19,19 @@ namespace ParamPracticum.Data.Uow
 
         public async Task CompleteAsync()
         {
-           await dbContext.SaveChangesAsync();
+            var dbContextTransaction = dbContext.Database.BeginTransaction();
+            {
+                try
+                {
+                    dbContext.SaveChanges();
+                    dbContextTransaction.Commit();
+                }
+                catch (Exception)
+                {
+                    //logging
+                    dbContextTransaction.Rollback();
+                }
+            }
         }
 
 

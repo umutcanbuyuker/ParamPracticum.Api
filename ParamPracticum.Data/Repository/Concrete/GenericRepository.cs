@@ -30,7 +30,8 @@ namespace ParamPracticum.Data.Repository.Concrete
 
         public void RemoveAsync(Entity entity)
         {
-            entity.GetType().GetProperty("IsDeleted").SetValue(entity, true);
+            entities.Remove(entity);
+            //entity.GetType().GetProperty("IsDeleted").SetValue(entity, true);
         }
 
         public void Update(Entity entity)
