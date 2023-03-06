@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ParamPracticum.Base\ParamPracticum.Base.csproj" />
+  </ItemGroup>
+
 </Project>

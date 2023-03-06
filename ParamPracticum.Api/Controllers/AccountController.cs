@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ParamPracticum.Data.Models;
 using ParamPracticum.Data.Uow;
@@ -24,8 +24,7 @@ namespace ParamPracticum.Api.Controllers
         public async Task<IActionResult> Get(int id)
         {
             var account = await unitOfWork.AccountRepository.GetByIdAsync(id);
-            if (account == null)
-            {
+            if (account == null)            {
                 return NotFound();
             }
             return Ok(account);

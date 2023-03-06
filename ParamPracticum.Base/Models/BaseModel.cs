@@ -1,4 +1,4 @@
-﻿namespace ParamPracticum.Base.Models
+﻿namespace ParamPracticum.Base
 {
     public class BaseModel
     {

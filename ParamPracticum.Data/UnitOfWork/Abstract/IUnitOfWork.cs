@@ -11,6 +11,7 @@ namespace ParamPracticum.Data.Uow
     public interface IUnitOfWork : IDisposable
     {
         IGenericRepository<Account> AccountRepository { get; } //readonly çalışacak
+        IGenericRepository<Person> PersonRepository { get; }
         Task CompleteAsync(); // Transactionları commit edecek
     }
 }

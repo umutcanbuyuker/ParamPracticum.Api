@@ -11,10 +11,15 @@ namespace ParamPracticum.Data.Uow
         private bool disposed;
 
         public IGenericRepository<Account> AccountRepository { get; private set; }
+
+        public IGenericRepository<Person> PersonRepository { get; private set; }
+
         public UnitOfWork(AppDbContext dbContext)
         {
             this.dbContext = dbContext;
-            AccountRepository = new GenericRepositoryz<Account>(dbContext);
+            AccountRepository = new GenericRepository<Account>(dbContext);
+            PersonRepository = new GenericRepository<Person>(dbContext);
+
         }
 
         public async Task CompleteAsync()

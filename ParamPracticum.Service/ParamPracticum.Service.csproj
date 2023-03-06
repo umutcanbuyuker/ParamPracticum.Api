@@ -1,9 +1,15 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ParamPracticum.Base\ParamPracticum.Base.csproj" />
+    <ProjectReference Include="..\ParamPracticum.Data\ParamPracticum.Data.csproj" />
+    <ProjectReference Include="..\ParamPracticum.Dto\ParamPracticum.Dto.csproj" />
+  </ItemGroup>
 
 </Project>

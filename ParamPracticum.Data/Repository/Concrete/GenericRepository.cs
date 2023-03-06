@@ -1,14 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ParamPracticum.Data.Context;
 using ParamPracticum.Data.Repository.Abstract;
+using System.Linq.Expressions;
 
 namespace ParamPracticum.Data.Repository.Concrete
 {
-    public class GenericRepositoryz<Entity> : IGenericRepository<Entity> where Entity : class
+    public class GenericRepository<Entity> : IGenericRepository<Entity> where Entity : class
     {
         protected readonly AppDbContext Context;
         private DbSet<Entity> entities;
-        public GenericRepositoryz(AppDbContext dbContext)
+        public GenericRepository(AppDbContext dbContext)
         {
             this.Context = dbContext;
             this.entities = Context.Set<Entity>();
@@ -37,6 +38,11 @@ namespace ParamPracticum.Data.Repository.Concrete
         public void Update(Entity entity)
         {
             entities.Update(entity);
+        }
+
+        public IEnumerable<Entity> Where(Expression<Func<Entity, bool>> where)
+        {
+            return entities.Where(where).AsQueryable();
         }
     }
 }

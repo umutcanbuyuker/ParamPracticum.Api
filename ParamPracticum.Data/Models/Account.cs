@@ -1,4 +1,4 @@
-﻿using ParamPracticum.Base.Models;
+﻿using ParamPracticum.Base;
 
 namespace ParamPracticum.Data.Models
 {
